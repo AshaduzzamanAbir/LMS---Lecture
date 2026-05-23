@@ -1,16 +1,61 @@
-# React + Vite
+# 🚀 LMS Client | Learning Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, modern, and fully responsive frontend web application for a Learning Management System (LMS). This client application features complex user authentication workflows, video streaming capabilities, interactive rich-text course components, and smooth progress tracking.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📑 Table of Contents
 
-## React Compiler
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)
+- [⚙️ Getting Started & Installation](#%EF%B8%8F-getting-started--installation)
+- [🔒 Environment Variables](#-environment-variables)
+- [📦 Available Scripts](#-available-scripts)
+- [🤝 Contributing](#-contributing)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **🔒 Secure Authentication:** Powered by `@clerk/react` for seamless sign-in, sign-up, and session management.
+- **📚 Rich Text Content:** Integrated with `quill` for robust course material reading and text generation.
+- **📺 Embedded Video Streaming:** Seamlessly handles lectures and video materials using `react-youtube`.
+- **📈 Progress Tracking:** Displays real-time student course completions with `rc-progress` and formatted intervals using `humanize-duration`.
+- **⭐ Interactive Course Reviews:** Includes student ratings using `react-simple-star-rating`.
+- **🎨 Cutting-edge UI:** Beautifully crafted layout using **Tailwind CSS v4** and `react-icons`.
+- **🛣️ Advanced Routing:** Dynamic nested layouts managed by `react-router-dom` v7.
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Frontend Ecosystem
+
+- **Framework:** React 19 (Functional components, custom Hooks)
+- **Build Tool:** Vite 8 (Ultra-fast Hot Module Replacement)
+- **Styling:** Tailwind CSS v4 & `@tailwindcss/vite` compiler
+- **Routing:** React Router DOM v7
+
+### Dependencies & Utilities
+
+- **Auth:** `@clerk/react`
+- **Text Editor:** `quill` v2
+- **Icons:** `react-icons`
+- **ID Generation:** `uniqid`
+
+---
+
+## ⚙️ Getting Started & Installation
+
+### Prerequisites
+
+Make sure you have **Node.js** (v18.0.0 or higher recommended) and **npm** installed on your machine.
+
+### Local Installation Steps
+
+1. **Clone the Repository**
+
+```bash
+   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   cd your-repo-name
+```
