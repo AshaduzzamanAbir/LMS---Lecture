@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@theme {
+  /* 1. Breakpoints (Screens) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* 2. Custom Font Sizes [font-size, line-height] */
+  --font-size-course-details-heading-small: 1.5rem;
+  --line-height-course-details-heading-small: 1.875rem;
+
+  --font-size-course-details-heading-large: 2rem;
+  --line-height-course-details-heading-large: 3.7rem;
+
+  --font-size-text-home-heading-small: 1.6rem;
+  --line-height-text-home-heading-small: 1.9rem;
+
+  --font-size-text-home-heading-large: 3.6rem;
+  --line-height-text-home-heading-large: 4.175rem;
+
+  --font-size-default: 15px;
+  --line-height-default: 22px;
+}
+* {
+  font-family: "Outfit", sans-serif;
+}
