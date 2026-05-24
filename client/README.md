@@ -56,6 +56,13 @@ Make sure you have **Node.js** (v18.0.0 or higher recommended) and **npm** insta
 1. **Clone the Repository**
 
 ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   git clone [https://github.com/AshaduzzamanAbir/LMS---Lecture.git] (https://github.com/AshaduzzamanAbir/LMS---Lecture.git)
+
+
+   **Install Dependencies**
+
+   npm install
    cd your-repo-name
+
+   npm run dev
 ```

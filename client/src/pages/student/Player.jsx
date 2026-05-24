@@ -5,13 +5,18 @@ import { useParams } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import humanizeDuration from "humanize-duration";
+import YouTube from "react-youtube";
+import Footer from "../../components/student/Footer";
+import Rating from "../../components/student/Rating";
 
 const Player = () => {
   const { enrolledCourses, calculateChapterTime } = useContext(AppContext);
 
-  const [courseData, setCourseData] = useState(null);
+  const [courseData, setCourseData] = useState();
   const [openSelection, setOpenSelection] = useState({});
   const [playerData, setPlayerData] = useState();
+  const [flase, setFlase] = useState(false);
+
   const { courseId } = useParams();
 
   const getCourseData = () => {
@@ -31,11 +36,12 @@ const Player = () => {
 
   useEffect(() => {
     getCourseData();
-  }, []);
+  }, [enrolledCourses]);
 
   return (
     <>
-      <div className="flex md:flex-row  flex-col-reverse justify-center gap-4 lg:gap-8 md:gap-8 px-4 sm:px-10 md:px-14 lg:px-36 py-6 pb-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white min-h-screen">
+      <div className="flex md:flex-row  flex-col-reverse justify-between gap-4 lg:gap-8 md:gap-8 px-4  sm:px-10 md:px-14 lg:px-36 py-6 pb-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white min-h-screen">
+        {/* left  */}
         <div>
           <div className="pt-8 text-white">
             <h3 className="font-semibold text-2xl mb-2">Course Structure</h3>
@@ -50,7 +56,7 @@ const Player = () => {
                       onClick={() => toggleSelection(index)}
                       className="relative flex items-center justify-between px-4 py-3 cursor-pointer select-none "
                     >
-                      <div className="flex items-center gap-2 cursor-pointer ">
+                      <div className="flex items-center gap-2 cursor-pointer text-nowrap">
                         <IoIosArrowDown
                           className={`text-gray-600 w-6 h-6 mt-1 ${openSelection[index] ? "rotate-180" : "rotate-0"} transition-transform duration-300`}
                         />
@@ -58,7 +64,7 @@ const Player = () => {
                           {chapter.chapterTitle}
                         </p>
                       </div>
-                      <p className="text-gray-600 text-xl">
+                      <p className="text-gray-600 text-xl ">
                         {chapter.chapterContent.length} - Lectures
                         {calculateChapterTime(chapter)}
                       </p>
@@ -80,13 +86,13 @@ const Player = () => {
                                 {lecture.lectureTitle}
                               </p>
                               <div className="flex items-center gap-4">
-                                {lecture.isPreviewFree && (
+                                {lecture.lectureUrl && (
                                   <p
                                     onClick={() =>
                                       setPlayerData({
-                                        videoId: lecture.lectureUrl
-                                          .split("/")
-                                          .pop(),
+                                        ...lecture,
+                                        chapter: index + 1,
+                                        lecture: index + 1,
                                       })
                                     }
                                     className="cursor-pointer text-blue-600 hover:underline decoration-blue-600 transition-colors duration-300"
@@ -110,11 +116,44 @@ const Player = () => {
                 ))}
             </div>
           </div>
+          <div className="pt-6 text-white flex items-center gap-4 ">
+            <h3 className="font-semibold text-2xl mb-2">Rate this Course:</h3>
+            <Rating initialRating={0} />
+          </div>
         </div>
+
+        {/* right  */}
         <div>
-          <p>right</p>
+          <div className="max-w-[424px] mx-auto rounded-lg p-4 shadow-lg">
+            {playerData ? (
+              <YouTube
+                videoId={playerData.lectureUrl.split("/").pop()}
+                opts={{ playerVars: { autoplay: 1 } }}
+                iframeClassName="w-full aspect-video rounded  "
+              />
+            ) : (
+              <img
+                src={courseData ? courseData.courseThumbnail : ""}
+                alt={courseData?.courseTitle}
+              />
+            )}
+            <div className="pt-4">
+              <h4 className="font-mediam text-md mb-2">
+                {playerData && (
+                  <span>
+                    {`${playerData.chapter}.${playerData.lecture} ${playerData.lectureTitle} : ${courseData?.courseTitle || ""}`}
+                  </span>
+                )}
+              </h4>
+
+              <button className=" bg-purple-800 w-full text-white px-4 py-2 my-4 rounded mt-4 hover:bg-purple-700 transition-colors duration-300 cursor-pointer active:scale-95">
+                {flase ? "Completed" : "Mark Completed"}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

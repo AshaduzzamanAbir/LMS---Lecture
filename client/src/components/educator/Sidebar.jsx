@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
+import { assets } from "../../assets/assets";
+import { AppContext } from "../../context/AppContext";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const { isEducator } = useContext(AppContext);
+
+  const menuItems = [
+    { name: "Dashboard", path: "/educator", icon: assets.home_icon },
+    { name: "Add Course", path: "/educator/add-course", icon: assets.add_icon },
+    {
+      name: "My Course",
+      path: "/educator/my-course",
+      icon: assets.my_course_icon,
+    },
+    {
+      name: "Student Enrolled",
+      path: "/educator/student-enrolled",
+      icon: assets.person_tick_icon,
+    },
+  ];
+
   return (
-    <div>
-      <h1>Sidebar</h1>
-    </div>
+    isEducator && (
+      <div className="md:w-64 w-15 border-r min-h-screen flex flex-col text-base border-gray-500 p-4 gap-5">
+        {menuItems.map((item, index) => (
+          <NavLink
+            className="flex items-center gap-4"
+            to={item.path}
+            key={index}
+            end={item.path === "/educator"}
+          >
+            <img src={item.icon} alt={item.name} className="w-6 h-6" />
+            <p className="md:block hidden text-center">{item.name}</p>
+          </NavLink>
+        ))}
+      </div>
+    )
   );
 };
 
