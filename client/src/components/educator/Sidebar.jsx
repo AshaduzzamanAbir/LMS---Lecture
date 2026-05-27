@@ -7,7 +7,7 @@ const Sidebar = () => {
   const { isEducator } = useContext(AppContext);
 
   const menuItems = [
-    { name: "Dashboard", path: "/educator", icon: assets.home_icon },
+    { name: "Deshboard", path: "/educator", icon: assets.home_icon },
     { name: "Add Course", path: "/educator/add-course", icon: assets.add_icon },
     {
       name: "My Course",
@@ -32,7 +32,9 @@ const Sidebar = () => {
             end={item.path === "/educator"}
           >
             <img src={item.icon} alt={item.name} className="w-6 h-6" />
-            <p className="md:block hidden text-center">{item.name}</p>
+            <p className="md:block hidden text-center hover:text-gray-500 duration-200 cursor-pointer hover:pl-1">
+              {item.name}
+            </p>
           </NavLink>
         ))}
       </div>
