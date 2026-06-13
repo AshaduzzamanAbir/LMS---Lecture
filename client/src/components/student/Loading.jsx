@@ -7,7 +7,7 @@ const Loading = () => {
         className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
         role="status"
       >
-        <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24"></svg>
+        <svg className="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24"></svg>
       </div>
       <span className="text-xl font-semibold">Loading...</span>
     </div>
