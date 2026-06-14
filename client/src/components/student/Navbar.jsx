@@ -18,12 +18,29 @@ const Navbar = () => {
         isCourseListPage ? "bg-white" : "bg-cyan-100/70"
       } `}
     >
-      <img
-        onClick={() => navigate("/")}
-        src={assets.logo}
-        alt="logo"
-        className="w-28 lg:w-32 cursor-pointer"
-      />
+      <div className="flex items-center justify-center gap-1">
+        {/* Logo */}
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-full flex items-center justify-center w-11 h-11 shadow-md">
+          <svg
+            className="w-5 h-5 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+        </div>
+
+        <h2 className="text-2xl font-bold text-white tracking-wide font-roboto">
+          Ash_Abir
+        </h2>
+      </div>
 
       {/* desktop view  */}
       <div className="hidden md:flex items-center gap-4 text-gray-800">

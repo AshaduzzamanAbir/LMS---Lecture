@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
           {/* Brand Section */}
           <div className="space-y-5">
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-1">
               {/* Logo */}
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-full flex items-center justify-center w-11 h-11 shadow-md">
                 <svg
@@ -27,7 +27,7 @@ const Footer = () => {
                 </svg>
               </div>
 
-              <h2 className="text-2xl font-bold text-white tracking-wide">
+              <h2 className="text-2xl font-bold text-white tracking-wide font-roboto">
                 Ash_Abir
               </h2>
             </div>
